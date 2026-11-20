@@ -1,0 +1,23 @@
+{{ $paper := .item }}
+{{ $work := $paper.Params.selected_work }}
+<article class="flex flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white dark:border-zinc-700 dark:bg-zinc-900">
+  {{ with $paper.Resources.GetMatch "featured.*" }}
+    {{ $cover := .Fit "960x540 webp q86" }}
+    <a href="{{ $paper.RelPermalink }}" aria-label="Read about {{ $work.name }}" class="flex aspect-video items-center justify-center bg-zinc-100 p-2">
+      <img src="{{ $cover.RelPermalink }}" width="{{ $cover.Width }}" height="{{ $cover.Height }}"
+           alt="{{ $work.image_alt }}" loading="lazy" decoding="async" class="h-full w-full object-contain">
+    </a>
+  {{ end }}
+  <div class="flex flex-1 flex-col px-6 py-5">
+    <p class="mb-2 text-sm font-medium text-teal-700 dark:text-teal-300">{{ $paper.Params.publication.name }} · {{ $paper.Date.Year }}</p>
+    <h3 class="text-xl font-semibold leading-snug">
+      <a href="{{ $paper.RelPermalink }}" class="hover:underline">{{ $work.name }}</a>
+    </h3>
+    <p class="mb-4 mt-2 text-base leading-relaxed text-zinc-700 dark:text-zinc-300">{{ $paper.Params.summary }}</p>
+    <div class="mt-auto flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold text-teal-700 dark:text-teal-300">
+      <a href="{{ $paper.RelPermalink }}" class="underline underline-offset-4" aria-label="Details about {{ $work.name }}">Details</a>
+      <a href="{{ $work.paper }}" class="underline underline-offset-4" aria-label="{{ $work.paper_label }} for {{ $work.name }}">{{ $work.paper_label }}</a>
+      <a href="{{ $work.github }}" class="underline underline-offset-4" aria-label="GitHub repository for {{ $work.name }}">GitHub</a>
+    </div>
+  </div>
+</article>

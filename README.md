@@ -20,3 +20,5 @@ An English-language academic portfolio based on the [HugoBlox Academic CV templa
 使用 Hugo Extended 0.162.0、Go、Node.js 22 和 npm。运行 `npm ci` 后使用 `npm run dev` 本地预览，使用 `npm run build` 构建生产站点。
 
 仓库的 Pages 发布源选择 **GitHub Actions**。提交到 `main` 后自动构建并部署。
+
+首页代表作使用论文页面的 `featured: true` 和 `selected_work` 字段。将论文原图放在对应条目目录的 `featured.png`，并更新图注与替代文字。

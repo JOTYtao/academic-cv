@@ -9,6 +9,31 @@ publication:
   issue: "2"
   pages: "761–773"
 featured: true
+summary: "Automated feature selection and cross-modal attention integrate satellite imagery, weather observations, and cloud motion."
+image:
+  preview_only: true
+selected_work:
+  name: "SolarFusionNet"
+  paper: "https://doi.org/10.1109/TSTE.2024.3482360"
+  paper_label: "Paper"
+  github: "https://github.com/JOTYtao/SolarFusionNet"
+  image_alt: "SolarFusionNet architecture with three input modalities"
 ---
 
-[View publication on the publisher’s site](https://doi.org/10.1109/TSTE.2024.3482360)
+[Paper](https://doi.org/10.1109/TSTE.2024.3482360) · [GitHub repository](https://github.com/JOTYtao/SolarFusionNet)
+
+## Research question
+
+Intraday irradiance forecasts can draw on satellite observations and local meteorology, but useful features and their relationships change with weather conditions.
+
+## Approach
+
+Modality-specific selection units extract informative channels and variables. Recurrent encoders capture temporal structure, and a Gaussian-kernel ConvLSTM models sparse optical-flow cloud motion. Hierarchical cross-modal attention then combines the three streams.
+
+![SolarFusionNet architecture with three input modalities](featured.png)
+
+*Figure from the SolarFusionNet paper.*
+
+## Results
+
+For four-hour-ahead forecasts, the study reports **37.4–47.6% forecast skill** relative to smart persistence across the evaluated cases.
