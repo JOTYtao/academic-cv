@@ -6,6 +6,7 @@ publication_types: ["manuscript"]
 publication:
   name: "SSRN preprint"
 featured: true
+selected_work_order: 5
 summary: "Prior-guided residual diffusion models uncertain regional cloud evolution around a smart-persistence forecast."
 image:
   preview_only: true
@@ -30,6 +31,8 @@ DiffSolar combines a smart-persistence baseline with a diffusion model that samp
 ![DiffSolar paper figure showing regional residual diffusion forecasting](featured.png)
 
 *Figure from the DiffSolar preprint.*
+
+[Original figure (PDF)](framework.pdf)
 
 ## Results
 

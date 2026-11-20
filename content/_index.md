@@ -6,8 +6,8 @@ sections:
     content:
       username: me
       button:
-        text: Academic CV
-        url: experience/
+        text: Download CV
+        url: uploads/CV_JING_Tao.pdf
       headings:
         about: About me
     design:
@@ -28,6 +28,8 @@ sections:
     id: papers
     content:
       title: Selected Research
+      sort_by: selected_work_order
+      sort_ascending: true
       filters:
         folders: [publications]
         featured_only: true

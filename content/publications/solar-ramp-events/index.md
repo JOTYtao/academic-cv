@@ -8,6 +8,7 @@ publication:
   volume: "26"
   pages: "100881"
 featured: true
+selected_work_order: 3
 summary: "A differentiable training loss targets the shape, timing, and magnitude of abrupt solar irradiance ramps."
 image:
   preview_only: true
@@ -32,6 +33,8 @@ RSTLoss uses a differentiable, derivative-based alignment term to capture ramp s
 ![RSTLoss diagram showing shape alignment and temporal distortion](featured.png)
 
 *Figure from the RSTLoss paper.*
+
+[Original figure (PDF)](framework.pdf)
 
 ## Results
 

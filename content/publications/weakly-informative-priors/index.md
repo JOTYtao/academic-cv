@@ -7,6 +7,7 @@ publication:
   name: "IEEE Transactions on Sustainable Energy"
   pages: "1–14"
 featured: true
+selected_work_order: 1
 summary: "Physically guided flow matching generates coherent regional solar irradiance ensembles from recent satellite-observed cloud motion."
 image:
   preview_only: true
@@ -31,6 +32,8 @@ An optical-flow advection module with autoregressive correction constructs a wea
 ![WIP-Flow architecture for regional ensemble forecasting](featured.png)
 
 *Figure from the WIP-Flow paper.*
+
+[Original figure (PDF)](framework.pdf)
 
 ## Results
 

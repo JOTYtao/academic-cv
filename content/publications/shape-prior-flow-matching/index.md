@@ -8,6 +8,7 @@ publication:
   volume: "26"
   pages: "100887"
 featured: true
+selected_work_order: 4
 summary: "Shape-prior flow matching converts hourly weather-model forecasts into probabilistic 15-minute irradiance trajectories."
 image:
   preview_only: true
@@ -32,6 +33,8 @@ SPTransformer estimates a deterministic 15-minute shape prior from coarse weathe
 ![SPFlow paper figure illustrating probabilistic solar irradiance downscaling](featured.png)
 
 *Figure from the SPFlow paper.*
+
+[Original figure (PDF)](framework.pdf)
 
 ## Results
 

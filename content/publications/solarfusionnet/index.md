@@ -9,6 +9,7 @@ publication:
   issue: "2"
   pages: "761–773"
 featured: true
+selected_work_order: 2
 summary: "Automated feature selection and cross-modal attention integrate satellite imagery, weather observations, and cloud motion."
 image:
   preview_only: true
@@ -33,6 +34,8 @@ Modality-specific selection units extract informative channels and variables. Re
 ![SolarFusionNet architecture with three input modalities](featured.png)
 
 *Figure from the SolarFusionNet paper.*
+
+[Original figure (PDF)](framework.pdf)
 
 ## Results
 
