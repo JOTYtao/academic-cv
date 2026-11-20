@@ -1,33 +1,32 @@
 ---
-title: 'Experience'
-date: 2023-10-24
+title: Academic CV
 type: landing
-
-design:
-  spacing: '5rem'
-
-# Note: `username` refers to the user's folder name in `content/authors/`
-
-# Page sections
 sections:
   - block: resume-experience
     content:
       username: me
     design:
-      # Hugo date format
-      date_format: 'January 2006'
-      # Education or Experience section first?
-      is_education_first: false
-  - block: resume-skills
+      date_format: January 2006
+      is_education_first: true
+  - block: markdown
     content:
-      title: Skills & Hobbies
-      username: me
-  - block: resume-awards
+      title: Teaching
+      text: |
+        **Teaching Assistant · The Hong Kong Polytechnic University**
+
+        - **Solar and Wind Engineering** — Supported course delivery, tutorials, assignment assessment, and student consultation.
+        - **Engineering and Environmental Management** — Supported course delivery, assignment assessment, and student consultation.
+  - block: markdown
     content:
-      title: Awards
-      username: me
-  - block: resume-languages
-    content:
-      title: Languages
-      username: me
+      title: Academic Service
+      text: |
+        **Journal peer reviewer**
+
+        - IEEE Transactions on Systems, Man, and Cybernetics: Systems
+        - IEEE Transactions on Sustainable Energy
+        - IEEE Transactions on Industrial Informatics
+        - IEEE Transactions on Consumer Electronics
+        - Advanced Engineering Informatics
+        - Journal of Intelligent Manufacturing
+        - Applied Energy
 ---

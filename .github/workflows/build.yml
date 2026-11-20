@@ -44,46 +44,14 @@ jobs:
       with:
         node-version: ${{ env.NODE_VERSION }}
 
-    - name: Setup pnpm
-      if: hashFiles('package.json') != ''
-      uses: pnpm/action-setup@v6
+    - name: Install locked dependencies
+      run: npm ci
 
-    - name: Get Hugo Version
-      id: hugo-version
-      run: |
-        # Install pinned yq version for robust YAML parsing
-        YQ_VERSION="v4.44.1"
-        if ! wget -q --tries=3 --waitretry=1 -O /tmp/yq \
-          "https://github.com/mikefarah/yq/releases/download/${YQ_VERSION}/yq_linux_amd64"; then
-          echo "::error::Failed to download yq"
-          exit 1
-        fi
-        sudo mv /tmp/yq /usr/local/bin/yq
-        sudo chmod +x /usr/local/bin/yq
-        
-        # Read hugo_version from hugoblox.yaml
-        VERSION=$(yq '.build.hugo_version // ""' hugoblox.yaml 2>/dev/null | grep -v '^null$' || true)
-        
-        # Fallback to a known stable version if not specified
-        DEFAULT_VERSION="0.161.1"
-        VERSION=${VERSION:-$DEFAULT_VERSION}
-        
-        # Validate version format (basic check)
-        if [[ ! "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-          echo "::warning::Invalid hugo_version format '$VERSION', using default $DEFAULT_VERSION"
-          VERSION="$DEFAULT_VERSION"
-        fi
-        
-        echo "HUGO_VERSION=$VERSION" >> $GITHUB_ENV
-        echo "Using Hugo version: $VERSION"
-
-    - name: Install dependencies
-      run: |
-        # Install Tailwind CLI if package.json exists
-        if [ -f "package.json" ]; then
-          echo "Installing Tailwind dependencies..."
-          pnpm install --no-frozen-lockfile || npm install
-        fi
+    - name: Set up Go
+      uses: actions/setup-go@v6
+      with:
+        go-version: '1.26.3'
+        cache-dependency-path: go.sum
 
     - name: Verify Tailwind CSS dependency
       if: hashFiles('package.json') != ''
@@ -98,7 +66,7 @@ jobs:
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v3
       with:
-        hugo-version: ${{ env.HUGO_VERSION }}
+        hugo-version: "0.162.0"
         extended: true
 
     # Cache dependencies (Go modules, node_modules) - stable, rarely changes
@@ -109,7 +77,7 @@ jobs:
           node_modules/
           modules/*/node_modules/
         key: ${{ runner.os }}-hugo-deps-${{ hashFiles('**/go.mod', '**/package-lock.json',
-          '**/pnpm-lock.yaml') }}
+          '**/go.sum') }}
         restore-keys: |
           ${{ runner.os }}-hugo-deps-
 
@@ -138,7 +106,7 @@ jobs:
       run: |
         # Check if site uses Pagefind search
         if [ -f "package.json" ] && grep -q "pagefind" package.json; then
-          pnpm run pagefind || npx pagefind --site "public"
+          npm run pagefind
         fi
 
     - name: Upload artifact
